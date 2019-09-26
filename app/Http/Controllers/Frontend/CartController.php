@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class CartController extends Controller
 {
     function getCart() {
-        echo 'cart.blade.php';
+        return view('frontend.cart.cart');
     }
 }

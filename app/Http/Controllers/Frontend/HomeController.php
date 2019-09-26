@@ -8,12 +8,12 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     function getIndex() {
-        echo 'index.blade.php';
+        return view('frontend.index');
     }
     function getAbout() {
-        echo 'about.blade.php';
+        return view('frontend.about');
     }
     function getContact() {
-        echo 'contact.blade.php';
+        return view('frontend.contact');
     }
 }

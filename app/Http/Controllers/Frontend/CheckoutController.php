@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 class CheckoutController extends Controller
 {
     function getCheckout() {
-        echo 'checkout.blade.php';
+        return view('frontend.checkout.checkout');
     }
     function getComplete() {
-        echo 'complete.blade.php';
+        return view('frontend.checkout.complete');
     }
 }

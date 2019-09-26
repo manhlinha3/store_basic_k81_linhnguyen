@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
     function getShop() {
-        echo 'shop.blade.php';
+        return view('frontend.product.shop');
     }
     function getDetail() {
-        echo 'detail.blade.php';
+        return view('frontend.product.detail');
     }
 }
