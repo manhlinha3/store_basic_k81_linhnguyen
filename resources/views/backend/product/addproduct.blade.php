@@ -1,4 +1,7 @@
 @extends('backend.master.master')
+@section('title')
+    Thêm Sản phẩm
+@endsection
 @section('content')
 
     <!--main-->

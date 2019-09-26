@@ -1,4 +1,7 @@
 @extends('backend.master.master')
+@section('title')
+    Thêm Người dùng
+@endsection
 @section('content')
 
     <!--main-->

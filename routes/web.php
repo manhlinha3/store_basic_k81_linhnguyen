@@ -54,7 +54,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('product', 'Backend\ProductController');
 
     // Category routes
-    Route::resource('category', 'Backend.CategoryController');
+    // Route::resource('category', 'Backend.CategoryController');
+    Route::get('category', 'Backend\CategoryController@getListCat');
+
+    // Order routes
+    Route::get('order', function ($id) {
+        
+    });
 });
 
 
