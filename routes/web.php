@@ -33,6 +33,28 @@ Route::group(['prefix' => 'product'], function() {
     Route::get('/detail', 'Frontend\ProductController@getDetail');
 });
 
+// backend
 
+Route::group(['prefix' => 'admin'], function () {
+    
+    // Home routes
+    Route::get('/', function () {
+        return view('backend.index');
+    });
+    
+    // User routes
+    // Route::get('users', 'Backend.UserController@getList');
+    // Route::get('users/edit/{id}', 'Backend.UserController@getEdit');
+    // Route::post('users/edit/{id}', 'Backend.UserController@postEdit');
+    // Route::get('users/add', 'Backend.UserController@getAdd');
+    // Route::post('users/add', 'Backend.UserController@postAdd');
+    Route::resource('user', 'Backend\UserController');
+
+    // Product routes
+    Route::resource('product', 'Backend\ProductController');
+
+    // Category routes
+    Route::resource('category', 'Backend.CategoryController');
+});
 
 
