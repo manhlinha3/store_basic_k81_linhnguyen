@@ -36,6 +36,8 @@ Route::group(['prefix' => 'product'], function() {
 });
 
 // ---------------BACKEND
+Route::get('/login', 'Backend\LoginController@getLogin');
+Route::post('/login', 'Backend\LoginController@postLogin');
 
 Route::group(['prefix' => 'admin'], function () {
     
@@ -65,6 +67,9 @@ Route::group(['prefix' => 'admin'], function () {
     // Route::get('order', function ($id) {
         
     // });
+
+    // Login
+    
     
     // 
     Route::get('/', 'Backend\IndexController@getIndex');
