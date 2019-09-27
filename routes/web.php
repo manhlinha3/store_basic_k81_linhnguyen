@@ -11,6 +11,8 @@
 |
 */
 
+// ---------------FRONTEND
+
 // Static pages
 Route::get('/', 'Frontend\HomeController@getIndex');
 Route::get('/about', 'Frontend\HomeController@getAbout');
@@ -33,34 +35,68 @@ Route::group(['prefix' => 'product'], function() {
     Route::get('/detail', 'Frontend\ProductController@getDetail');
 });
 
-// backend
+// ---------------BACKEND
 
 Route::group(['prefix' => 'admin'], function () {
     
-    // Home routes
-    Route::get('/', function () {
-        return view('backend.index');
-    });
+    // // Home routes
+    // Route::get('/', function () {
+    //     return view('backend.index');
+    // });
     
-    // User routes
-    // Route::get('users', 'Backend.UserController@getList');
-    // Route::get('users/edit/{id}', 'Backend.UserController@getEdit');
-    // Route::post('users/edit/{id}', 'Backend.UserController@postEdit');
-    // Route::get('users/add', 'Backend.UserController@getAdd');
-    // Route::post('users/add', 'Backend.UserController@postAdd');
-    Route::resource('user', 'Backend\UserController');
+    // // User routes
+    // // Route::get('users', 'Backend.UserController@getList');
+    // // Route::get('users/edit/{id}', 'Backend.UserController@getEdit');
+    // // Route::post('users/edit/{id}', 'Backend.UserController@postEdit');
+    // // Route::get('users/add', 'Backend.UserController@getAdd');
+    // // Route::post('users/add', 'Backend.UserController@postAdd');
+    // Route::resource('user', 'Backend\UserController');
 
-    // Product routes
-    Route::resource('product', 'Backend\ProductController');
+    // // Product routes
+    // Route::resource('product', 'Backend\ProductController');
 
-    // Category routes
-    // Route::resource('category', 'Backend.CategoryController');
-    Route::get('category', 'Backend\CategoryController@getListCat');
+    // // Category routes
+    // // Route::resource('category', 'Backend.CategoryController');
+    // // Route::get('category', 'Backend\CategoryController@getListCat');
 
-    // Order routes
-    Route::get('order', function ($id) {
+    
+
+    // // Order routes
+    // Route::get('order', function ($id) {
         
+    // });
+    
+    // 
+    Route::get('/', 'Backend\IndexController@getIndex');
+
+    // Category
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('', 'Backend\CategoryController@getCategory');
+        Route::get('/edit', 'Backend\CategoryController@getEditCategory');
     });
+
+    // Order
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('/', 'Backend\OrderController@getOrder');
+        Route::get('/detail', 'Backend\OrderController@getDetailOrder');
+        Route::get('/processed', 'Backend\OrderController@getProcessed');
+    });
+
+    // Product
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/', 'Backend\ProductController@getListProduct');
+        Route::get('/add', 'Backend\ProductController@getAddProduct');
+        Route::get('/edit', 'Backend\ProductController@getEditProduct');
+    });
+
+    // User
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'Backend\UserController@getListUser');
+        Route::get('/add', 'Backend\UserController@getAddUser');
+        Route::get('/edit', 'Backend\UserController@getEditUser');
+    });
+
+
 });
 
 
